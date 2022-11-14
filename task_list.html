@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/vue@next"></script>
+
+    </head>
+
+    <body>
+
+        <h1>Hello Vue Loops</h1>
+
+        <!-- the below code was in the wrong spot-->
+
+        <!-- <label for ="task">Please enter your to do task:</label>
+        <input id="task" v-model="newTask">
+        <button v-on:click="addTask">Add Task</button> -->
+
+        <!-- the above code was in the wrong spot-->
+
+        <div id="app">
+
+            <label for ="task">Please enter your to do task:</label>
+            <input id="task" v-model="newTask">
+            <button v-on:click="addTask">Add Task</button> <!--add this chunk of code to the correct spot, under '<div id="app">'-->
+            <ul>
+                <li v-for="task in taskList">{{ task }}</li>
+            </ul>
+
+        </div>
+
+        <script>
+            
+            let app = Vue.createApp({
+                data() {
+                    return {
+                        newTask: '',
+                        // taskList: ['Water plants', 'feed cat', 'shovel sidwalk']  --- see empty array below
+                        taskList: []                    // made the task list and empy array
+                    }
+                },
+                methods: {
+                   addTask() {
+                        this.taskList.push(this.newTask)
+                        this.newTask = ''           // this will clear the input
+                   }
+                    
+                }
+            })
+
+            app.mount('#app')
+
+        </script>
+
+    </body>
+</html>
