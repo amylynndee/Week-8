@@ -1,0 +1,2 @@
+It means there is no data in the ‘total’ property/value. You can technically safely ignore it, but your Vue app wouldn’t be complete and/or function the way for its designed purpose. 
+What is causing it is not having a property for the data to be multiplied and you can fix this by creating a computed property which will automatically update the values being multiplied.
